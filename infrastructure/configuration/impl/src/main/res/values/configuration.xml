@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tmdb_api_key">aac815133e3d463967c816e5a637bc34</string>
+    <string name="tmdb_base_url">https://api.themoviedb.org/3/</string>
+    <integer name="movie_list_cache_duration_in_seconds">30</integer>
+</resources>

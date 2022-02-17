@@ -1,0 +1,49 @@
+repositories {
+  mavenCentral()
+}
+
+android {
+  compileSdk Versions.compileSdk
+
+  defaultConfig {
+    minSdk Versions.minSdk
+    targetSdk Versions.targetSdk
+    versionCode Releases.versionCode
+    versionName Releases.versionName
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      consumerProguardFiles 'proguard-rules.pro'
+    }
+  }
+
+  defaultConfig {
+    vectorDrawables.useSupportLibrary true
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = "11"
+  }
+
+  testOptions {
+    unitTests.all {
+      testLogging {
+        exceptionFormat = 'full'
+      }
+    }
+  }
+
+  variantFilter { variant ->
+    if (variant.name == 'debug') {
+      variant.ignore = true
+    }
+  }
+}
