@@ -2,12 +2,12 @@ package com.davisamaral.mymovies.movie.presentation.list.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.davisamaral.mymovies.movie.domain.usecase.GetMoviesUseCase
 
 class MovieListViewModelFactory(
-    private val getMoviesUseCase: GetMoviesUseCase
+    private val source: PopularMoviesPagingSource
 ) : ViewModelProvider.NewInstanceFactory() {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MovieListViewModel(getMoviesUseCase) as T
+        return modelClass.getConstructor(PopularMoviesPagingSource::class.java).newInstance(source)
     }
 }

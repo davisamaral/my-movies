@@ -8,6 +8,8 @@ class ConfigFeatureDataModulePlugin : Plugin<Project> {
             plugin("kotlin-android")
             plugin("custom-dependencies")
             plugin("de.mannodermaus.android-junit5")
+            plugin("de.mannodermaus.android-junit5")
+            plugin("kotlin-kapt")
             from("${target.rootDir}/build-plugins/scripts/config-android-module.gradle")
         }
         target.configFeatureDataModuleRepositories()

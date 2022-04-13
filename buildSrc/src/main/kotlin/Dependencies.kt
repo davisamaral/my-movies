@@ -6,14 +6,14 @@ object Versions {
     const val compileSdk = 31
     const val minSdk = 21
     const val targetSdk = 31
-    const val compose = "1.1.0"
+    const val compose = "1.1.1"
 }
 
 object GradlePlugin {
     object Versions {
         const val kotlin = "1.6.10"
         const val googleServices = "4.3.10"
-        const val androidGradlePlugin = "7.1.2"
+        const val androidGradlePlugin = "7.1.3"
         const val junit5 = "1.8.0.0"
         const val navigationSafeArgs = "2.4.1"
     }

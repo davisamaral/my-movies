@@ -1,63 +1,83 @@
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 android {
 
-  buildFeatures {
-    viewBinding true
-    compose true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion Versions.compose
-  }
-
-  compileSdk Versions.compileSdk
-
-  defaultConfig {
-    applicationId ApplicationId.id
-    minSdk Versions.minSdk
-    targetSdk Versions.targetSdk
-    versionCode Releases.versionCode
-    versionName Releases.versionName
-
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-
-    debug {
-      applicationIdSuffix ".debug"
-      versionNameSuffix "-alpha"
-      matchingFallbacks = ['release']
-      debuggable true
+    buildFeatures {
+        viewBinding true
+        compose true
     }
 
-    release {
-      minifyEnabled true
-      proguardFiles 'proguard-rules.pro'
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.compose
     }
-  }
 
-  defaultConfig {
-    vectorDrawables.useSupportLibrary true
-  }
+    compileSdk Versions.compileSdk
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_11
-    targetCompatibility JavaVersion.VERSION_11
-  }
+    defaultConfig {
+        applicationId ApplicationId.id
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
 
-  kotlinOptions {
-    jvmTarget = "11"
-  }
-
-  testOptions {
-    unitTests.all {
-      testLogging {
-        exceptionFormat = 'full'
-      }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-  }
+
+    signingConfigs {
+        release {
+            keyAlias = "my-movies-release"
+            keyPassword = "Madud@84"
+            storeFile = file("../keystores/my-movies-release.jks")
+            storePassword = "Madud@84"
+        }
+
+        debug {
+            keyAlias "my-movies-debug"
+            keyPassword "Madud@84"
+            storeFile file("../keystores/my-movies-debug.jks")
+            storePassword = "Madud@84"
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-alpha"
+            matchingFallbacks = ['release']
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+            debuggable true
+        }
+
+        release {
+            minifyEnabled true
+            proguardFile "r8-rules.pro"
+            shrinkResources false
+            debuggable false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    testOptions {
+        unitTests.all {
+            testLogging {
+                exceptionFormat = 'full'
+            }
+        }
+    }
 }

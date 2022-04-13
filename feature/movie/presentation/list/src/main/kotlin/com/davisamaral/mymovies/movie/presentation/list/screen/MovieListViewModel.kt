@@ -1,27 +1,17 @@
 package com.davisamaral.mymovies.movie.presentation.list.screen
 
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.davisamaral.mymovies.movie.domain.model.Movie
-import com.davisamaral.mymovies.movie.domain.usecase.GetMoviesUseCase
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.Flow
 
 class MovieListViewModel(
-    private val getMoviesUseCase: GetMoviesUseCase
+    private val source: PopularMoviesPagingSource
 ) : ViewModel() {
 
-    val movieState = MovieState()
-
-    @Stable
-    class MovieState {
-        val movies = mutableStateOf(emptyList<Movie>())
-    }
-
-    fun loadMovies() = viewModelScope.launch {
-        getMoviesUseCase().let {
-            movieState.movies.value = it
-        }
+    fun getMovies(): Flow<PagingData<Movie>> {
+        return Pager(PagingConfig(20)) { source }.flow
     }
 }

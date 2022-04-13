@@ -29,6 +29,7 @@ fun Project.configFeatureModuleRepositories(): Unit = with(dependencies) {
     addRecyclerview()
     addConstraintLayout()
     addCompose()
+    addCoil()
     addFragment()
     addNavigation()
 

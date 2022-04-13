@@ -1,19 +1,26 @@
 package com.davisamaral.mymovies.movie.data.datasource
 
-import com.davisamaral.mymovies.database.cache.MemoryCache
+import com.davisamaral.mymovies.movie.data.cache.MovieDetailCache
+import com.davisamaral.mymovies.movie.data.cache.PopularMoviesCache
 import com.davisamaral.mymovies.movie.domain.model.Movie
+import com.davisamaral.mymovies.movie.domain.model.MovieDetail
 
 internal class MovieMemoryDataSource(
-    private val movieRemoteDataSource: MovieRemoteDataSource
-) : MovieLocalDataSource, MemoryCache<String, List<Movie>>() {
+    private val movieRemoteDataSource: MovieRemoteDataSource,
+    private val popularMoviesCache: PopularMoviesCache,
+    private val movieDetailCache: MovieDetailCache
+) : MovieLocalDataSource {
 
-    override suspend fun getMovies(): List<Movie> {
-        return getWithSource(CACHE_KEY) {
-            movieRemoteDataSource.getMovies()
-        }.orEmpty()
+
+    override suspend fun getMovieDetail(movieId: Long): MovieDetail? {
+        return movieDetailCache.getMoviesDetail(movieId) {
+            movieRemoteDataSource.getMovieDetail(movieId)
+        }
     }
 
-    companion object {
-        private const val CACHE_KEY = "MOVIES_CACHE_KEY"
+    override suspend fun getPopularMovies(page: Int): List<Movie> {
+        return popularMoviesCache.getPopularMovies(page) {
+            movieRemoteDataSource.getPopularMovies(page)
+        }
     }
 }

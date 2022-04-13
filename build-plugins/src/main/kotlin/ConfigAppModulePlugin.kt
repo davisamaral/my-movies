@@ -30,6 +30,7 @@ fun Project.configAppModuleRepositories(): Unit = with(dependencies) {
     addRecyclerview()
     addConstraintLayout()
     addCompose()
+    addCoil()
     addFragment()
     addNavigation()
 
@@ -43,7 +44,4 @@ fun Project.configAppModuleRepositories(): Unit = with(dependencies) {
     addInfrastructureDatabase()
     addInfrastructureConfigurationDi()
     addInfrastructureConfigurationPublic()
-
-    addFeatureMovieDi()
-    addFeatureMovieNavigationPublic()
 }

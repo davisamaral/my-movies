@@ -5,19 +5,19 @@ fun Project.addKtx() = with(dependencies) {
 }
 
 fun Project.addAppcompat() = with(dependencies) {
-    add("implementation", AndroidX.appcompat)
+    add("implementation", AndroidX.appCompat)
 }
 
 fun Project.addDesign() = with(dependencies) {
-    add("implementation", AndroidX.design)
+    add("implementation", AndroidX.materialDesign)
 }
 
 fun Project.addRecyclerview() = with(dependencies) {
-    add("implementation", AndroidX.recyclerview)
+    add("implementation", AndroidX.recyclerView)
 }
 
 fun Project.addConstraintLayout() = with(dependencies) {
-    add("implementation", Layout.constraint)
+    add("implementation", AndroidX.constraintLayout)
 }
 
 fun Project.addFragment() = with(dependencies) {
@@ -26,10 +26,19 @@ fun Project.addFragment() = with(dependencies) {
 
 fun Project.addCompose() = with(dependencies) {
     add("implementation", Compose.ui)
+    add("implementation", Compose.paging)
     add("implementation", Compose.uiTooling)
     add("implementation", Compose.foundation)
     add("implementation", Compose.material)
+    add("implementation", Compose.materialIcons)
+    add("implementation", Compose.materialIconsExtended)
     add("implementation", Compose.runtimeLivedata)
+    add("androidTestImplementation", Compose.test)
+}
+
+fun Project.addCoil() = with(dependencies) {
+    add("implementation", Coil.coil)
+    add("implementation", Coil.coilCompose)
 }
 
 fun Project.addCoroutines() = with(dependencies) {
@@ -45,7 +54,6 @@ fun Project.addKoin() = with(dependencies) {
 
 fun Project.addKoinAndroid() = with(dependencies) {
     add("implementation", Koin.android)
-    add("testImplementation", Koin.mokito)
     add("testImplementation", Koin.test)
     add("androidTestImplementation", Koin.androidTest)
 }
@@ -82,10 +90,14 @@ fun Project.addNavigation() = with(dependencies) {
     add("implementation", Navigation.navigationFragment)
     add("implementation", Navigation.navigationCompose)
     add("implementation", Navigation.navigationUi)
+    add("implementation", Navigation.accompanistNavigationAnimation)
     add("androidTestImplementation", Navigation.navigationTesting)
 }
 
 fun Project.addRetrofit() = with(dependencies) {
     add("implementation", Retrofit.core)
     add("implementation", Retrofit.moshiConverter)
+    add("implementation", Retrofit.moshi)
+    add("implementation", Retrofit.moshiKotlin)
+    add("kapt", Retrofit.moshiKapt)
 }

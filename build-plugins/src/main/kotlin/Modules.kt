@@ -19,4 +19,9 @@ object Modules {
     const val featureMovieDomainImpl = ":feature:movie:domain:impl"
     const val featureMoviePresentationList = ":feature:movie:presentation:list"
     const val featureMoviePresentationDetail = ":feature:movie::presentation:detail"
+
+    const val featureSplashDi = ":feature:splash:di"
+    const val featureSplashNavigationPublic = ":feature:splash:navigation:public"
+    const val featureSplashNavigationImpl = ":feature:splash:navigation:impl"
+    const val featureSplashPresentationSplash = ":feature:splash:presentation:splash"
 }

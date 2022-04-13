@@ -1,0 +1,27 @@
+package com.davisamaral.mymovies.movie.domain.model
+
+data class MovieDetail(
+    val id: Long,
+    val title: String,
+    val isVideo: Boolean,
+    val backdropPath: String?,
+    val posterPath: String?,
+    val isAdult: Boolean,
+    val budget: Long,
+    val genres: List<Genre>,
+    val homepage: String?,
+    val imdbId: String?,
+    val originalLanguage: String,
+    val originalTitle: String,
+    val overview: String?,
+    val popularity: Double,
+    val productionCompanies: List<ProductionCompany>,
+    val releaseDate: String,
+    val revenue: Long,
+    val runtime: Int?,
+    val spokenLanguages: List<SpokenLanguage>,
+    val status: String,
+    val tagline: String?,
+    val voteAverage: Double,
+    val voteCount: Int,
+)

@@ -20,3 +20,8 @@ include(":feature:movie:domain:public")
 include(":feature:movie:domain:impl")
 include(":feature:movie:presentation:list")
 include(":feature:movie:presentation:detail")
+
+include(":feature:splash:di")
+include(":feature:splash:navigation:public")
+include(":feature:splash:navigation:impl")
+include(":feature:splash:presentation:splash")

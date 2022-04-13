@@ -29,6 +29,7 @@ fun Project.configAndroidDesignSystemModuleRepositories(): Unit = with(dependenc
     addRecyclerview()
     addConstraintLayout()
     addCompose()
+    addCoil()
     addFragment()
 
     addInfrastructureConfigurationPublic()

@@ -4,3 +4,4 @@ plugins {
 
 addInfrastructureConfigurationImpl()
 addInfrastructureConfigurationPublic()
+addUtilityKotlinExtensions()

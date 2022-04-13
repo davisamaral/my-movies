@@ -5,7 +5,7 @@ import androidx.collection.LruCache
 
 private const val DEFAULT_SIZE = 4 * 1024 * 1024 // 4mb
 
-class LruCacheSource<K, T>(cacheSize: Int = DEFAULT_SIZE) : CacheSource<K, T> {
+class LruCacheSource<K: Any, T>(cacheSize: Int = DEFAULT_SIZE) : CacheSource<K, T> {
 
     private val inMemoryDb: LruCache<K, CacheData<out T>> = LruCache(cacheSize)
 

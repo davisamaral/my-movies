@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
     }
@@ -18,12 +19,6 @@ allprojects {
         mavenLocal()
         google()
         mavenCentral()
-    }
-}
-
-subprojects {
-    tasks.withType(Test).configureEach { task ->
-        jvmArgs("-XX:+HeapDumpOnOutOfMemoryError", "-XX:HeapDumpPath=$rootDir/oom-in-${task.path}.hprof")
     }
 }
 

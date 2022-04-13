@@ -22,6 +22,11 @@ fun Project.addFeatureMovieDomainImpl() = add { featureMovieDomainImpl }
 fun Project.addFeatureMoviePresentationList() = add { featureMoviePresentationList }
 fun Project.addFeatureMoviePresentationDetail() = add { featureMoviePresentationDetail }
 
+fun Project.addFeatureSplashDi() = add { featureSplashDi }
+fun Project.addFeatureSplashNavigationPublic() = add { featureSplashNavigationPublic }
+fun Project.addFeatureSplashNavigationImpl() = add { featureSplashNavigationImpl }
+fun Project.addFeatureSplashPresentationSplash() = add { featureSplashPresentationSplash }
+
 private fun Project.add(block: Modules.() -> String) = with(dependencies) {
     add("implementation", project(block(Modules)))
 }

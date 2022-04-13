@@ -7,3 +7,6 @@ addFeatureMovieData()
 addFeatureMovieDomainImpl()
 addFeatureMoviePresentationList()
 addFeatureMoviePresentationDetail()
+
+addUtilityKotlinExtensions()
+addInfrastructureConfigurationPublic()

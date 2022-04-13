@@ -18,6 +18,7 @@ object Navigation {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.version}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.version}"
     const val navigationTesting = "androidx.navigation:navigation-testing:${Versions.version}"
+    const val accompanistNavigationAnimation = "com.google.accompanist:accompanist-navigation-animation:0.24.5-alpha"
 }
 
 
@@ -39,31 +40,34 @@ object Coroutines {
 
     const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+
     const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 }
 
 object Koin {
     object Versions {
         const val koin = "3.1.5"
-        const val mokito = "3.5.9"
     }
 
     const val core = "io.insert-koin:koin-core:${Versions.koin}"
-    const val coreTest = "io.insert-koin:koin-test:${Versions.koin}"
-
     const val android = "io.insert-koin:koin-android:${Versions.koin}"
-    const val mokito = "org.mockito:mockito-inline:${Versions.mokito}"
+
     const val test = "io.insert-koin:koin-test-junit4:${Versions.koin}"
+    const val coreTest = "io.insert-koin:koin-test:${Versions.koin}"
     const val androidTest = "io.insert-koin:koin-test-junit4:${Versions.koin}"
 }
 
 object Retrofit {
     object Versions {
         const val retrofit = "2.9.0"
+        const val moshi = "1.13.0"
     }
 
     const val core = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    const val moshiKapt = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 }
 
 object AndroidX {
@@ -71,56 +75,45 @@ object AndroidX {
         const val ktx = "1.7.0"
         const val appcompat = "1.4.1"
         const val design = "1.1.0"
-        const val browser = "1.4.0"
         const val recyclerView = "1.2.1"
-        const val swipeRefreshLayout = "1.1.0"
-        const val transition = "1.3.1"
-        const val annotation = "1.1.0"
+        const val annotation = "1.1.1"
         const val fragment = "1.3.6"
-    }
-
-    const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
-    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
-    const val design = "com.google.android.material:material:${Versions.design}"
-    const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
-    const val swiperefreshlayout =
-        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
-
-    const val transition = "androidx.transition:transition:${Versions.transition}"
-    const val customtabs = "androidx.browser:browser:${Versions.browser}"
-    const val annotations = "androidx.annotation:annotation:${Versions.annotation}"
-
-    const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
-}
-
-object Layout {
-    object Versions {
         const val constraintLayout = "2.1.3"
     }
 
-    const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
+    const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val materialDesign = "com.google.android.material:material:${Versions.design}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+    const val annotations = "androidx.annotation:annotation:${Versions.annotation}"
+    const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 }
 
 object Compose {
-    const val version = "1.1.0"
-    const val lottieVersion = "4.0.0"
-    const val activityVersion = "1.4.0"
+    private const val composeVersion = "1.1.1"
+    private const val pagingVersion = "1.0.0-alpha14"
 
-    const val ui = "androidx.compose.ui:ui:$version"
-    const val uiTooling = "androidx.compose.ui:ui-tooling:$version"
-    const val activityCompose = "androidx.activity:activity-compose:$activityVersion"
-    const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:$version"
-    const val foundation = "androidx.compose.foundation:foundation:$version"
-    const val material = "androidx.compose.material:material:$version"
-    const val animation = "androidx.compose.animation:animation:$version"
-    const val runtime = "androidx.compose.runtime:runtime:$version"
-    const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$version"
-    const val uiTest = "androidx.compose.ui:ui-test-junit4:$version"
-    const val lottie = "com.airbnb.android:lottie-compose:$lottieVersion"
+    const val paging = "androidx.paging:paging-compose:$pagingVersion"
+    const val ui = "androidx.compose.ui:ui:$composeVersion"
+    const val uiTooling = "androidx.compose.ui:ui-tooling:$composeVersion"
+    const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
+    const val material = "androidx.compose.material:material:$composeVersion"
+    const val materialIcons = "androidx.compose.material:material-icons-core:$composeVersion"
+    const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$composeVersion"
+    const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$composeVersion"
+    const val test = "androidx.compose.ui:ui-test-junit4:$composeVersion"
+}
+
+object Coil{
+    private const val version = "2.0.0-rc02"
+
+    const val coil = "io.coil-kt:coil:$version"
+    const val coilCompose = "io.coil-kt:coil-compose:$version"
 }
 
 object KotlinTest {
-    const val version = "5.8.2"
+    private const val version = "5.8.2"
 
     const val jupiterApi = "org.junit.jupiter:junit-jupiter-api:$version"
     const val jupiterEngine = "org.junit.jupiter:junit-jupiter-engine:$version"
