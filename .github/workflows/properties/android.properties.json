@@ -1,0 +1,6 @@
+{
+  "name": "Gradle Build",
+  "description": "Build an Android project with Gradle.",
+  "iconName": "android",
+  "categories": ["Continuous integration", "Kotlin", "Mobile"]
+}

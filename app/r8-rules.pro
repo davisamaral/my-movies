@@ -2,4 +2,3 @@
 -dontobfuscate
 -dontoptimize
 -dontshrink
-//-dontpreverify
