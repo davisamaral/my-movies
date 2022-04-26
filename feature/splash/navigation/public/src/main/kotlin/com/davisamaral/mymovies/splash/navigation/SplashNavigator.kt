@@ -1,8 +1,7 @@
 package com.davisamaral.mymovies.splash.navigation
 
-import androidx.navigation.NavController
+import com.davisamaral.mymovies.utility.navigation.Navigator
 
-interface SplashNavigator {
-
-    fun navigateToHomeScreen(navController: NavController)
+interface SplashNavigator : Navigator {
+    fun navigateToHomeScreen()
 }

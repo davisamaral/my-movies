@@ -7,6 +7,7 @@ import com.davisamaral.mymovies.movie.presentation.list.di.moviePresentationModu
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
+
 val featureMovieModule = module {
 
     val modules = listOf(

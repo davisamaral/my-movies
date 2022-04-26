@@ -1,13 +1,10 @@
 package com.davisamaral.mymovies.movie.navigation
 
-import androidx.navigation.NavController
+import com.davisamaral.mymovies.utility.navigation.Navigator
 
-interface MovieNavigator {
+interface MovieNavigator : Navigator {
 
-    fun navigateToMovieListScreen(navController: NavController)
+    fun navigateToMovieListScreen()
 
-    fun navigateToMovieDetailScreen(
-        movieId: Long,
-        navController: NavController
-    )
+    fun navigateToMovieDetailScreen(movieId: Long)
 }

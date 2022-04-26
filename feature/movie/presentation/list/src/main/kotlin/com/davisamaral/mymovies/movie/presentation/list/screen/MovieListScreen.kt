@@ -17,7 +17,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -32,7 +31,6 @@ import com.davisamaral.mymovies.utility.navigation.TopBarManager
 fun MovieListScreen(
     listState: LazyListState,
     movieNavigator: MovieNavigator,
-    navController: NavController,
     topBarManager: TopBarManager,
     source: PopularMoviesPagingSource,
     movieListViewModel: MovieListViewModel = viewModel(
@@ -44,29 +42,26 @@ fun MovieListScreen(
 
     //val result = handlePagingResult(movies = lazyMovies)
 
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            state = listState,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            topBarManager.setPageTitle("Popular Movies")
-            itemsIndexed(lazyMovies) { index, movie ->
-                val isLastRow = lazyMovies.itemCount - 1 == index
-                movie?.let {
-                    MovieRow(
-                        movieId = movie.id,
-                        movieTitle = movie.title,
-                        movieDescription = movie.overview,
-                        movieImageUrl = movie.backdropPath,
-                        isLastRow = isLastRow
-                    ) { movieId ->
-                        movieNavigator.navigateToMovieDetailScreen(
-                            movieId = movieId,
-                            navController = navController
-                        )
-                    }
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        state = listState,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        topBarManager.setPageTitle("Popular Movies")
+        itemsIndexed(lazyMovies) { index, movie ->
+            val isLastRow = lazyMovies.itemCount - 1 == index
+            movie?.let {
+                MovieRow(
+                    movieId = movie.id,
+                    movieTitle = movie.title,
+                    movieDescription = movie.overview,
+                    movieImageUrl = movie.backdropPath,
+                    isLastRow = isLastRow
+                ) { movieId ->
+                    movieNavigator.navigateToMovieDetailScreen(movieId = movieId)
                 }
             }
+        }
     }
 }
 

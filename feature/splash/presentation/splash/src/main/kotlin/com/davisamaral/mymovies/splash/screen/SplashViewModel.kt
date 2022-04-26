@@ -4,7 +4,6 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.davisamaral.mymovies.splash.navigation.SplashNavigator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -13,7 +12,6 @@ import kotlinx.coroutines.sync.withLock
 
 class SplashViewModel(
     private val splashNavigator: SplashNavigator,
-    private val navController: NavController
 ) : ViewModel() {
 
     val splashState: MovieState
@@ -35,7 +33,7 @@ class SplashViewModel(
                 splashState.counter.value = it.toString()
                 if (it > 0) delay(1000)
             }
-            splashNavigator.navigateToHomeScreen(navController = navController)
+            splashNavigator.navigateToHomeScreen()
         }
     }
 }
