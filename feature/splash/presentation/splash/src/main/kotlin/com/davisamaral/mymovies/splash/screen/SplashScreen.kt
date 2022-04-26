@@ -12,19 +12,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
 import com.davisamaral.mymovies.splash.navigation.SplashNavigator
 
 @Composable
 fun SplashScreen(
-    navController: NavController,
     splashNavigator: SplashNavigator,
-    splashViewModel: SplashViewModel = viewModel(
-        factory = SplashViewModelFactory(
-            splashNavigator = splashNavigator,
-            navController = navController,
-        )
-    ),
+    splashViewModel: SplashViewModel = viewModel(factory = SplashViewModelFactory(splashNavigator)),
 ) {
     SplashContent(counterText = splashViewModel.splashState.counter.value)
 }

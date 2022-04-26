@@ -1,13 +1,14 @@
 package com.davisamaral.mymovies.splash.navigation.impl.navigator
 
-import androidx.navigation.NavController
 import com.davisamaral.mymovies.splash.navigation.SplashNavigator
+import com.davisamaral.mymovies.splash.navigation.impl.navigator.SplashScreenDefinition.SplashScreenToHomeNavigationCommand
+import com.davisamaral.mymovies.utility.navigation.NavigationManager
 
-internal class SplashNavigatorImpl : SplashNavigator {
+internal class SplashNavigatorImpl(
+    override val navigationManager: NavigationManager,
+) : SplashNavigator {
 
-    override fun navigateToHomeScreen(navController: NavController) {
-        navController.navigate("movie") {
-            popUpTo("splash") { inclusive = true }
-        }
+    override fun navigateToHomeScreen() {
+        navigate(SplashScreenToHomeNavigationCommand())
     }
 }
